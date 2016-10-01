@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour {
 	public Rigidbody2D rb2d;
 
     float speed = 10f;
+	public Text deathMessage;
+	public BGFade bgFade;
 
 	// Use this for initialization
 	void Start () {
@@ -30,5 +33,14 @@ public class Player : MonoBehaviour {
 		rb2d.isKinematic = false;
         GetComponent<Animator>().SetBool("dead", true);
 		rb2d.velocity = new Vector2(5, 7);
+		StartCoroutine ("DeathRoutine");
+		Obstacle obs = coll.GetComponent<Obstacle> ();
+		deathMessage.text = "Knocked down by " + obs.obstacleName + ":\n" + obs.deathMessage;
     }
+
+	public IEnumerator DeathRoutine()
+	{
+		yield return new WaitForSeconds (2.0f);
+		bgFade.StartFade ();
+	}
 }
