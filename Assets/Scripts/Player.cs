@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD:Assets/Player.cs
         if(Input.GetKey("a") && position > -1){
             position -= speed * Time.deltaTime;
         }
@@ -21,5 +22,11 @@ public class Player : MonoBehaviour {
             position += speed * Time.deltaTime;
         }
         gameObject.transform.position = new Vector3(position * 3, 0, 0);
+=======
+        progress += Time.deltaTime;
+		int vx = (int)Input.GetAxisRaw ("Horizontal");
+		position += speed * vx * Time.deltaTime;
+		gameObject.transform.position = Vector3.ClampMagnitude(new Vector3(position * 3, 0, 0), 3);
+>>>>>>> 53ca6764c438fa7cb86361591d231b5c10d26faf:Assets/Scripts/Player.cs
     }
 }
