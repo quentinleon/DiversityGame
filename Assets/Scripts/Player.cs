@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll) {
         dead = true;
         GetComponent<Animator>().SetBool("dead", true);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(5, 7);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(4, 7);
         print(coll);
     }
 }
