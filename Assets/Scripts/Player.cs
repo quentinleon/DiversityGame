@@ -30,6 +30,5 @@ public class Player : MonoBehaviour {
 		rb2d.isKinematic = false;
         GetComponent<Animator>().SetBool("dead", true);
 		rb2d.velocity = new Vector2(5, 7);
-        print(coll);
     }
 }
