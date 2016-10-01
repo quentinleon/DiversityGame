@@ -11,11 +11,18 @@ public class Player : MonoBehaviour {
 	public Text deathMessage;
 	public BGFade bgFade;
 
+	public AudioClip gameMusic;
+	public AudioClip deathMusic;
+	public AudioSource src;
+
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
         GetComponent<Animator>().SetBool("dead", false);
         dead = false;
+		src.clip = gameMusic;
+		src.loop = true;
+		src.Play ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +43,8 @@ public class Player : MonoBehaviour {
 		StartCoroutine ("DeathRoutine");
 		Obstacle obs = coll.GetComponent<Obstacle> ();
 		deathMessage.text = "Knocked down by " + obs.obstacleName + ":\n" + obs.deathMessage;
+		src.clip = deathMusic;
+		src.Play ();
     }
 
 	public IEnumerator DeathRoutine()
