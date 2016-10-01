@@ -30,8 +30,8 @@ public class EnemySpawner : MonoBehaviour
 
 	private void SpawnEnemy(int index)
 	{
-		GameObject o = Instantiate (enemies [index]);
-		o.transform.position = new Vector2 (Random.Range (-spawnXRange, spawnXRange), spawnY);
+            GameObject o = Instantiate(enemies[index]);
+            o.transform.position = new Vector2(Random.Range(-spawnXRange, spawnXRange), spawnY);
 	}
 }
 
