@@ -31,6 +31,6 @@ public class BGFade : MonoBehaviour {
 			yield return null;
 		}
 		yield return new WaitForSeconds (5.0f);
-		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+		SceneManager.LoadScene (0);
 	}
 }
