@@ -11,7 +11,7 @@ public class Ladder : MonoBehaviour {
 	{
 		foreach (Transform tr in ladderPieces)
 		{
-			tr.Translate (Vector3.down * 0.1f);
+			tr.Translate (Vector3.down * 0.05f);
 			if (tr.position.y < lowerBound)
 			{
 				tr.position = new Vector3 (tr.position.x, upperBound);
