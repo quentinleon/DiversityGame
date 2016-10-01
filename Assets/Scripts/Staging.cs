@@ -23,7 +23,7 @@ public class Staging : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        progress += Time.deltaTime * 3;
+        progress += Time.deltaTime;
         gameObject.transform.position = new Vector3(-7.45f, (float)(-4.65 + (progress / 180 * 9.3)), 0);
         if (progress > 30) {
             if (!manSpawn.gameObject.activeSelf) {
