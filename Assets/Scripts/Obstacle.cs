@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Obstacle : MonoBehaviour {
 
-	public string enemyType;
+	public string obstacleName;
+	public string deathMessage;
 	public enum Direction {
 		Up,
 		Down
@@ -12,6 +13,7 @@ public class Obstacle : MonoBehaviour {
 
 	void Awake()
 	{
+		Destroy (gameObject, 10);
 		tag = "Enemy";
 	}
 
