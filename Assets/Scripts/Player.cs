@@ -13,7 +13,9 @@ public class Player : MonoBehaviour {
 
 	public AudioClip gameMusic;
 	public AudioClip deathMusic;
+	public AudioClip deathSound;
 	public AudioSource src;
+	public AudioSource sfx;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +45,8 @@ public class Player : MonoBehaviour {
 		StartCoroutine ("DeathRoutine");
 		Obstacle obs = coll.GetComponent<Obstacle> ();
 		deathMessage.text = "Knocked down by " + obs.obstacleName + ":\n" + obs.deathMessage;
+		sfx.clip = deathSound;
+		sfx.Play ();
 		src.clip = deathMusic;
 		src.Play ();
     }
