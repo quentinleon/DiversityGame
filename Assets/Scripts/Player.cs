@@ -10,18 +10,24 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GetComponent<Animator>().SetBool("dead", false);
         dead = false;
         position = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		int vx = (int)Input.GetAxisRaw ("Horizontal");
-		position += speed * vx * Time.deltaTime;
-		gameObject.transform.position = Vector3.ClampMagnitude(new Vector3(position * 3, 0, 0), 3);
+        if (!dead) {
+            int vx = (int)Input.GetAxisRaw("Horizontal");
+            position += speed * vx * Time.deltaTime;
+            gameObject.transform.position = Vector3.ClampMagnitude(new Vector3(position * 3, 0, 0), 3);
+        }
     }
 
-    void OnCollisionEnter2D(Collision2D coll) {
+    void OnTriggerEnter2D(Collider2D coll) {
         dead = true;
+        GetComponent<Animator>().SetBool("dead", true);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(5, 7);
+        print(coll);
     }
 }
